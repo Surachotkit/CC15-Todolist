@@ -1,3 +1,4 @@
+@import './index.scss';
 $header-heigh: 60px;  //สามารถ แก้ที่เดียวได้เลย 
 $sidebar-width: 300px;
 
@@ -15,7 +16,7 @@ $sidebar-width: 300px;
 
         grid-row: 1/2;
         grid-column: 1/-1;
-        background-color: red;
+        // background-color: red;
     }
     &__sidebar{
         // grid-row-start: 2;
@@ -25,7 +26,7 @@ $sidebar-width: 300px;
 
         grid-row: 2/-1;
         grid-column: 1/2;
-        background-color: bisque;
+        // background-color: bisque;
     }
     &__content{
         // grid-row-start: 2;
@@ -35,7 +36,33 @@ $sidebar-width: 300px;
         
         grid-row: 2/-1;
         grid-column: 2/-1;
-        background-color: rgb(106, 106, 106);
+        // background-color: rgb(106, 106, 106);
     }
 
+}
+
+
+// HEADER
+.header{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: $primary;
+    height: $header-heigh;
+    padding: 5px 20px;
+
+    &__logo{
+        font-size: 2.4rem;
+        color: $white;
+        display: flex;
+    }
+
+    &__text{
+        flex: 1;
+        color: $white;
+    }
+    &__search{
+        min-width: 300px;
+    }
 }
