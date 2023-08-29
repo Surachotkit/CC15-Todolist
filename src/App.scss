@@ -1,6 +1,4 @@
 @import './index.scss';
-$header-heigh: 60px;  //สามารถ แก้ที่เดียวได้เลย 
-$sidebar-width: 300px;
 
 
 .todo{
@@ -42,27 +40,3 @@ $sidebar-width: 300px;
 }
 
 
-// HEADER
-.header{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    background-color: $primary;
-    height: $header-heigh;
-    padding: 5px 20px;
-
-    &__logo{
-        font-size: 2.4rem;
-        color: $white;
-        display: flex;
-    }
-
-    &__text{
-        flex: 1;
-        color: $white;
-    }
-    &__search{
-        min-width: 300px;
-    }
-}
