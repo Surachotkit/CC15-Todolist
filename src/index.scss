@@ -16,6 +16,7 @@ $white: #fff;
 
 html {
     font-size: 62.5%; /*equal font-size : 10px*/
+    font-size: 24px;
 }
 
 body {
@@ -23,5 +24,5 @@ body {
       'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:$primary
+  color:$grey-dark
 }
