@@ -1,3 +1,4 @@
+import './Search.scss'
 import { FaSearch } from "react-icons/fa";
 
 function Search(){
