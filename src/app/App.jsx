@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import Header from "../components/Header";
 import ListItem from "../components/ListItem";
+import Lists from "../components/Lists";
 
 function App() {
   //<ListItem text="Inbox" icon={<FaInbox />} active={true} />
@@ -31,11 +32,12 @@ function App() {
       <div className="todo__sidebar">
         <aside className="sidebar">
           <section className="sidebar__cartegory">
-            <ul className="list">
+
+            <Lists data={generalLists} />
+
+            {/* <ul className="list">
               {generalLists.map((obj) => <ListItem key={obj.id} text={obj.text} icon={obj.icon} active={obj.active}/> )}
-
-
-            </ul>
+            </ul> */}
           </section>
           <section className="sidebar__cartegory">
             <div className="accordion">
@@ -47,10 +49,12 @@ function App() {
                 </li>
               </div>
               {/* List */}
-              <ul className="lists">
-                {projectLists.map((obj) => <ListItem key={obj.id} text={obj.text} icon={obj.icon} active={obj.active} />)}
 
-              </ul>
+              <Lists data={projectLists} />
+
+              {/* <ul className="lists">
+                {projectLists.map((obj) => <ListItem key={obj.id} text={obj.text} icon={obj.icon} active={obj.active} />)}
+              </ul> */}
             </div>
           </section>
         </aside>
@@ -61,3 +65,4 @@ function App() {
 }
 
 export default App;
+
