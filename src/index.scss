@@ -5,7 +5,7 @@ $grey-light: #eaeaea;
 $grey-dark: #808080;
 $white: #fff;
 $header-heigh: 60px;  //สามารถ แก้ที่เดียวได้เลย 
-$sidebar-width: 300px;
+$sidebar-width: 370px;
 
 
 // Global Reset
@@ -29,4 +29,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color:$grey-dark
+}
+
+li{
+    list-style: none;
 }

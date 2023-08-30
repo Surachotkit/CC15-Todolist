@@ -39,4 +39,46 @@
 
 }
 
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 30px;
+    // background-color: wheat;
+    height: calc(100vh - $header-heigh);
+}
+
+//block
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 4px;
+
+
+
+    //Element
+    &__item{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 2rem; //20px
+        cursor: pointer;
+
+        &:hover{
+            background-color: $grey-light;
+        }
+
+        // Modifier
+        &__icon{
+            display: flex;
+
+        }
+        &__text{
+            font-weight: 500;
+        }
+    }
+}
+
 
