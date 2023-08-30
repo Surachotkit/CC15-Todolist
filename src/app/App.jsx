@@ -8,6 +8,9 @@ import {
 import Header from "../components/Header";
 import ListItem from "../components/ListItem";
 import Lists from "../components/Lists";
+import TodoHeader from "../components/Todo/TodoHeader";
+import TodoCreate from "../components/Todo/TodoCreate";
+import TodoLists from "../components/Todo/TodoLists";
 
 function App() {
   //<ListItem text="Inbox" icon={<FaInbox />} active={true} />
@@ -59,7 +62,24 @@ function App() {
           </section>
         </aside>
       </div>
-      <div className="todo__content">TodoContent</div>
+      <div className="todo__content">
+        <main className="todo__container">
+              {/* Header */}
+              <TodoHeader/>
+              {/* <div className="header">
+                <h1 className="header__text">Inbox</h1>
+                <span className="header__date"></span>
+              </div> */}
+
+
+              {/* CreateTodo */}
+              <TodoCreate/>
+              
+              {/* ToodoList */}
+              <TodoLists/>
+
+        </main>
+      </div>
     </div>
   );
 }
