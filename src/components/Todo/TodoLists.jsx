@@ -5,16 +5,16 @@ import { HiOutlineCheck } from 'react-icons/hi';
 import TodoForm from './TodoForm';
 
 function TodoLists() {
-  const [isEditList,setisEditList] = useState(false)
+  const [IsOpenForm,setIsOpenForm] = useState(false)
   const handleClickEdit =  () =>{
-    setisEditList(!isEditList)
+    setIsOpenForm(!IsOpenForm)
   }
 
   
   return (
     <>
-      {isEditList ? (
-        <TodoForm textSubmit="Edit Task"/>
+      {IsOpenForm ? (
+        <TodoForm textSubmit="Edit Task" setIsOpenForm={setIsOpenForm}/>
       ) : (
         <ul className={styles.todo__lists}>
           <li className={styles.todo}>

@@ -24,30 +24,45 @@ props = {
 */
 
 function TodoForm(props) {
-  const [isError,setIsError] = useState(true)
+  const [isError,setIsError] = useState(false)
   const [taskInput,setTaskInput] = useState('') //รับ user input
   console.log(taskInput);
 
   const handleChangeInput = function (event){
     // console.log("user typing...",event.target.value);
+    if(isError) setIsError(false)
     setTaskInput(event.target.value)
+  
   }
   const handleSubmit = function (event){
+    // 1.ProventDefault
     event.preventDefault()
-    //FormValadation 
-    //case 1 : submit ได้
+    // 2. รู้ก่อนว่า user พิมอะไร? (อยู่ใน state : taskInput)
+    
+    //3. FormValadation 
+    //case 1 : submit ได้ => ไม่ error
     //case 2 : submit ไม่ได้ => แสดง Error
+    if(taskInput.trim() === ''){
+      console.log("Error");
+      setIsError(true)
+      return;
+
+    }else{
+      console.log("succeess");
+    }
     console.log("submit");
   }
 
   const handelCancel = function (){
     console.log('cancel');
+    // correctName : setIsOpenForm(fasle)
+    // inCorrectName : undefined(false)
     props.setIsOpenForm(false)
   }
   return (
     <form className={styles.todo__form__container} onSubmit={handleSubmit}>
       {/*	Body */}
-      <input 
+      <input
       className={styles.todo__form__input} 
       placeholder='Task Name' 
       value={taskInput} 
@@ -59,7 +74,7 @@ function TodoForm(props) {
         <div className={styles.todo__form__buttons}>
           <Button text='Cancel' active={false} type="button" onClick={handelCancel}/>
           <Button text={props.textSubmit} active={true} type="submit"/>
-          {/* <button type='button' onClick={handelCancel}>POC</button> */}
+      
 
 
           {/* <button>Cancel</button>
