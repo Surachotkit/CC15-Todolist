@@ -25,9 +25,18 @@ props = {
 
 function TodoForm(props) {
   const [isError,setIsError] = useState(true)
+  const [taskInput,setTaskInput] = useState('') //รับ user input
+  console.log(taskInput);
 
+  const handleChangeInput = function (event){
+    // console.log("user typing...",event.target.value);
+    setTaskInput(event.target.value)
+  }
   const handleSubmit = function (event){
     event.preventDefault()
+    //FormValadation 
+    //case 1 : submit ได้
+    //case 2 : submit ไม่ได้ => แสดง Error
     console.log("submit");
   }
 
@@ -38,7 +47,11 @@ function TodoForm(props) {
   return (
     <form className={styles.todo__form__container} onSubmit={handleSubmit}>
       {/*	Body */}
-      <input className={styles.todo__form__input} placeholder='Task Name' />
+      <input 
+      className={styles.todo__form__input} 
+      placeholder='Task Name' 
+      value={taskInput} 
+      onChange={handleChangeInput}/> 
 
       {/*Form Footer */}
       <div className={styles.todo__form__footer}>
