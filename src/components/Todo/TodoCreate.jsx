@@ -46,17 +46,17 @@ Rerender 1 ครั้ง --> code ทั้งหมด ใน FC จะถู
 // #1 : FC = Funtion Component == render
 function TodoCreate() {
   // Hook Fn
-  const [isOpenFrom, setIsOpenFrom] = useState(false);
+  const [isOpenForm, setIsOpenForm] = useState(false);
  
   // #2 : JS Function (Logic)
   const handleClick = function () {
-    setIsOpenFrom(!isOpenFrom)
+    setIsOpenForm(!isOpenForm)
 
   };
   return (
     <>
-      {isOpenFrom ? (
-        <TodoForm textSubmit="Add Task"/>
+      {isOpenForm ? (
+        <TodoForm textSubmit="Add Task" setIsOpenForm={setIsOpenForm}/> // ส่ง props ไป 
       ) : (
         <div className={styles.todo__create} onClick={handleClick}>
           <div className={styles.todo__create__button}>

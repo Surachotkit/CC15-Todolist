@@ -16,6 +16,13 @@ CC 1 - Form Handle
   - type="button" <button type='button'>a</button> ***จะไม่ submit
 */
 
+/*
+props = {
+  textSubmit : string
+  setIsOpenForm : FN
+}
+*/
+
 function TodoForm(props) {
   const [isError,setIsError] = useState(true)
 
@@ -26,6 +33,7 @@ function TodoForm(props) {
 
   const handelCancel = function (){
     console.log('cancel');
+    props.setIsOpenForm(false)
   }
   return (
     <form className={styles.todo__form__container} onSubmit={handleSubmit}>
