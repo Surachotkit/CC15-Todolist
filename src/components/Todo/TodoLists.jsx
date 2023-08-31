@@ -14,7 +14,7 @@ function TodoLists() {
   return (
     <>
       {isEditList ? (
-        <TodoForm />
+        <TodoForm textSubmit="Edit Task"/>
       ) : (
         <ul className={styles.todo__lists}>
           <li className={styles.todo}>

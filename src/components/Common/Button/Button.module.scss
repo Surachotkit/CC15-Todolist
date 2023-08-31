@@ -5,7 +5,8 @@
   padding: 8px;
   border-radius: 3px;
   cursor: pointer;
-  flex: 1;
+  // flex: 1;
+  white-space: nowrap;
 
   &__primary {
     background-color: $primary;
