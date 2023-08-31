@@ -38,22 +38,20 @@ b === 9
 /*
 CC5 - React State (1 ในฟังชั่นของกลุ่ม React Hook)
 const [state,setState] = useState(initialState:any) 
+เมื่อ State เปลี่ยน function component จะ Rerender 
+Rerender 1 ครั้ง --> code ทั้งหมด ใน FC จะถูกรันใหม่อีก 1 ครั้ง
 */
+
 
 // #1 : FC = Funtion Component == render
 function TodoCreate() {
   // Hook Fn
   const [isOpenFrom, setIsOpenFrom] = useState(false);
-  console.log(isOpenFrom);
-  // let active = true;
-
-
+ 
   // #2 : JS Function (Logic)
-  const handleClick = function (event) {
-    console.log("Clicked");
+  const handleClick = function () {
     setIsOpenFrom(!isOpenFrom)
-    // active = !active; //ถ้าคลิกเปลี่ยนเป็น true
-    // console.log("clicked", active);
+
   };
   return (
     <>
