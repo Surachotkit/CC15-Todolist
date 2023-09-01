@@ -24,10 +24,12 @@ props = {
   setIsOpenForm : FN
 }
 */
-
+// oldTodo: {id,task,status,due_date}
+// addTodo: FN,
+// editTodo:FN
 function TodoForm(props) {
   const [isError, setIsError] = useState(false);
-  const [taskInput, setTaskInput] = useState(""); //รับ user input
+  const [taskInput, setTaskInput] = useState(props.oldTodo?.task || ''); //รับ user input
   // console.log(taskInput);
 
   const handleChangeInput = function (event) {
@@ -35,6 +37,7 @@ function TodoForm(props) {
     if (isError) setIsError(false);
     setTaskInput(event.target.value);
   };
+  // 2 mode : Add or Edit 
   const handleSubmit = function (event) {
     // 1.ProventDefault
     event.preventDefault();
@@ -49,6 +52,16 @@ function TodoForm(props) {
       setIsError(true);
       return;
     }
+    // todoitem ไม่ render li เสมอ ไป 
+    // เมื่อ render todoform ต้อง u
+    // edit todo -> ต้องรู้ว่า เปิดขึ้นมา detail ของ todo เป็นยังไง?? สื่อสาร..ต้องส่ง props
+    if(props.addTodo) props.addTodo(taskInput)  // ถ้าไม่มี addtodo == ไม่ทำ
+    else if(props.editTodo && props.oldTodo) {
+      props.editTodo(props.oldTodo.id, {task: taskInput})
+    }
+  
+
+
     // console.log("submit");
     // create Newtodo
     // 1. ส่ง Request ไปหลังบ้านเพื่อน save ลง database
@@ -60,12 +73,7 @@ function TodoForm(props) {
     
 
     
-    const newTodo = { 
-      id: nanoid(), 
-      task: taskInput, 
-      status: false, 
-      due_date: "2023-01-09" 
-    };
+    
     
     // const newTodoLists = [newTodo, ...props.data]  //clone ของเดิมมาก่อน **ความหมาย คือ เอาของใหม่ ตามด้วย ของเก่า
     // END Logic : For CreateTodo
@@ -73,7 +81,7 @@ function TodoForm(props) {
     // Update State
     // props.setTodo((prev) => [newTodo, ...prev]);
 
-    props.addTodo(taskInput)
+    // props.addTodo(taskInput)
     props.setIsOpenForm(false)
   };
 

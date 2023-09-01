@@ -83,21 +83,21 @@ function App() {
     // setAllTodos(newTodoLists)
 
     // #2 Practice #2
-    // const newTodoLists = allTodos.map(function(todo){
-    //   if(todo.id !== todoId){// ถ้า id ตัวไหน ไม่เท่ากับ ตัวที่จะแก้
-    //     return todo
-    //   } else
-    //     return {...todo, ...newTodoObj}  // แต่ถ้าใช่ให้ clone todo สองตัวนี้ merge เข้าด้วยกัน 
+    const newTodoLists = allTodos.map(function(todo){
+      if(todo.id !== todoId){// ถ้า id ตัวไหน ไม่เท่ากับ ตัวที่จะแก้
+        return todo
+      } else
+        return {...todo, ...newTodoObj}  // แต่ถ้าใช่ให้ clone todo สองตัวนี้ merge เข้าด้วยกัน 
         
-    //   })
-    //   setAllTodos(newTodoLists)
+      })
+      setAllTodos(newTodoLists)
 
      // #Practice 3
-     const newTodoLists = allTodos.reduce((acc, todo) => {
-      if (todo.id !== todoId) acc.push(todo); // ถ้า id ตัวไหน ไม่เท่ากับ ตัวที่จะแก้
-      else acc.push({ ...todo, ...newTodoObj }); // แต่ถ้าใช่ให้ clone todo สองตัวนี้ merge เข้าด้วยกัน 
-      return acc;
-    }, []);
+    //  const newTodoLists = allTodos.reduce((acc, todo) => {
+    //   if (todo.id !== todoId) acc.push(todo); // ถ้า id ตัวไหน ไม่เท่ากับ ตัวที่จะแก้
+    //   else acc.push({ ...todo, ...newTodoObj }); // แต่ถ้าใช่  ให้ clone เก่า - ใหม่ สองตัวนี้ merge เข้าด้วยกัน 
+    //   return acc;
+    // }, []);
   }
   return (
     <div className="todo">
