@@ -28,7 +28,7 @@ props = {
 function TodoForm(props) {
   const [isError, setIsError] = useState(false);
   const [taskInput, setTaskInput] = useState(""); //รับ user input
-  console.log(taskInput);
+  // console.log(taskInput);
 
   const handleChangeInput = function (event) {
     // console.log("user typing...",event.target.value);
@@ -45,11 +45,11 @@ function TodoForm(props) {
     //case 1 : submit ได้ => ไม่ error
     //case 2 : submit ไม่ได้ => แสดง Error
     if (taskInput.trim() === "") {
-      console.log("Error");
+      // console.log("Error");
       setIsError(true);
       return;
     }
-    console.log("submit");
+    // console.log("submit");
     // create Newtodo
     // 1. ส่ง Request ไปหลังบ้านเพื่อน save ลง database
     // 2. ทำการอัพเดท State ของ AllTodo == React ทำการ Rerender
@@ -66,17 +66,19 @@ function TodoForm(props) {
       status: false, 
       due_date: "2023-01-09" 
     };
-
-    const newTodoLists = [newTodo, ...props.data]  //clone ของเดิมมาก่อน **ความหมาย คือ เอาของใหม่ ตามด้วย ของเก่า
+    
+    // const newTodoLists = [newTodo, ...props.data]  //clone ของเดิมมาก่อน **ความหมาย คือ เอาของใหม่ ตามด้วย ของเก่า
     // END Logic : For CreateTodo
 
     // Update State
-    props.setTodo((prev) => [newTodo, ...prev]);
+    // props.setTodo((prev) => [newTodo, ...prev]);
+
+    props.addTodo(taskInput)
     props.setIsOpenForm(false)
   };
 
   const handelCancel = function () {
-    console.log("cancel");
+    // console.log("cancel");
     // correctName : setIsOpenForm(fasle)
     // inCorrectName : undefined(false)
     props.setIsOpenForm(false);

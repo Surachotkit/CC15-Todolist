@@ -4,7 +4,7 @@ import { HiOutlineCheck } from "react-icons/hi";
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 
-function TodoItem({ id,task, done, date }) {
+function TodoItem({ id,index,task, done, date,deleteTodo ,editTodo}) {
     // Object Destucturing (Props)
   
 
@@ -14,6 +14,12 @@ function TodoItem({ id,task, done, date }) {
     setIsOpenForm(!isOpenForm);
   };
 
+  const toggleStatus = () =>{
+    const newTodoObj = {id,index,task, date,status: !done}
+    editTodo(id, newTodoObj)
+    // console.log(newTodoObj);
+    // props.editTodo(id.newTodoObj)
+  }
   return (
     <>
       {isOpenForm ? (
@@ -23,17 +29,18 @@ function TodoItem({ id,task, done, date }) {
           <div
             className={`${ styles.todo__checkbox } ${done ? styles.todo__checkbox__done : ''}`}
           >
-            <HiOutlineCheck className={styles.todo__checkbox__icon} />
+            <HiOutlineCheck className={styles.todo__checkbox__icon} onClick={toggleStatus}/>
           </div>
           <p className={`${styles.todo__task} ${done ? styles.todo__task__done : ''}`}>
             {task}
           </p>
           <span className={styles.todo__date}>{date}</span>
           <div className={styles.todo__action}>
-            <span>
+            {/* ลบ ตามเลข id */}
+            <span > 
               <FaPen className={styles.todo__edit} onClick={handleClick} />
             </span>
-            <span>
+            <span onClick={() => deleteTodo(index)}>
               <FaTrashAlt className={styles.todo__delete} />
             </span>
           </div>
